@@ -1,0 +1,11 @@
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  var Category = sequelize.define('Category', {
+    name: DataTypes.STRING,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.DATE
+  }, {});
+  Category.associate = function(models) {
+  };
+  return Category;
+};
