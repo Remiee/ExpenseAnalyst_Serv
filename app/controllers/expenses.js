@@ -20,17 +20,6 @@ expenses.post('/', checkAuth, (req, res) => {
   });
 });
 
-// Update
-expenses.put('/:id', checkAuth, (req, res) => {
-  Expense.findById(req.params.id).then((expense) => {
-    expense.update().then((updatedExpense) => {
-      res.json(updatedExpense)
-    });
-  }).catch(error => {
-    res.status(500).json(error);
-  });
-});
-
 // Destroy
 expenses.delete('/:id', checkAuth, (req, res) => {
   Expense.findById(req.params.id).then((expense) => {
