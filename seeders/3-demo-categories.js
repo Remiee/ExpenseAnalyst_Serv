@@ -13,10 +13,6 @@ module.exports = {
           createdAt: '2018.01.01',
           updatedAt: '2018.01.01'
         }, {
-          name: 'Installment',
-          createdAt: '2018.01.01',
-          updatedAt: '2018.01.01'
-        }, {
           name: 'Food',
           createdAt: '2018.01.01',
           updatedAt: '2018.01.01'

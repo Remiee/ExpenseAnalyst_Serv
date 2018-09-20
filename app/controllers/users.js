@@ -18,11 +18,17 @@ users.get('/expenses', checkAuth, (req, res, next) => {
       whereObject.category = req.query.category;
     }
     if (req.query.fromDate && req.query.toDate) {
-      whereObject.spentAt = {$between: [req.query.fromDate, req.query.toDate]}
+      whereObject.spentAt = {
+        $between: [req.query.fromDate, req.query.toDate]
+      }
     } else if (req.query.fromDate) {
-      whereObject.spentAt = {$gte: req.query.fromDate}
+      whereObject.spentAt = {
+        $gte: req.query.fromDate
+      }
     } else if (req.query.toDate) {
-      whereObject.spentAt = {$lte: req.query.toDate}
+      whereObject.spentAt = {
+        $lte: req.query.toDate
+      }
     }
     whereObject.userId = req.userData.userId;
   }
@@ -30,7 +36,8 @@ users.get('/expenses', checkAuth, (req, res, next) => {
     where: whereObject,
     order: [
       ['spentAt', 'DESC']
-  ],
+    ],
+    limit: 1000
   }).then(expenses => {
     res.json(expenses);
   }).catch(error => {
